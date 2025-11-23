@@ -19,7 +19,7 @@ Sistema completo de gerenciamento de estacionamento desenvolvido em Java, utiliz
 
 1. **Veiculo.java**
    - Representa um veículo no estacionamento
-   - Atributos: placa, tipo, dataEntrada, dataSaida (modelo é opcional)
+   - Atributos: placa, tipo, dataEntrada, dataSaida
    - Métodos para calcular tempo de permanência e valor
    - Cálculo de valor diferenciado: Carro (R$12,00 1ª hora + R$8,00 adicional) e Moto (R$8,00 1ª hora + R$5,00 adicional)
 
@@ -165,6 +165,5 @@ Valor estimado: R$ 20,00 (cobrado por 3 hora(s))
 - As datas são formatadas no padrão brasileiro (dd/MM/yyyy HH:mm)
 - Quando o estacionamento está lotado, os veículos são adicionados à fila de espera
 - Ao registrar uma saída, se houver fila de espera, o primeiro veículo entra automaticamente
-- O modelo do veículo não é mais solicitado no registro de entrada
 
 

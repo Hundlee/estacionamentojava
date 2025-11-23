@@ -58,7 +58,7 @@ public class Estacionamento {
             }
         }
         
-        Veiculo veiculo = new Veiculo(placa, null, tipo, dataEntrada);
+        Veiculo veiculo = new Veiculo(placa, tipo, dataEntrada);
         
         // Verifica se há vagas disponíveis
         if (getVagasOcupadas() >= capacidadeTotal) {

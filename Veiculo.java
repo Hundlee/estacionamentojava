@@ -3,11 +3,10 @@ import java.time.Duration;
 
 /**
  * Classe que representa um veículo no estacionamento.
- * Armazena informações da placa, modelo, tipo, hora de entrada e saída.
+ * Armazena informações da placa, tipo, hora de entrada e saída.
  */
 public class Veiculo {
     private String placa;
-    private String modelo;
     private String tipo; // Carro, Moto, etc.
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
@@ -15,12 +14,10 @@ public class Veiculo {
     /**
      * Construtor que cria um veículo com hora de entrada atual.
      * @param placa Placa do veículo
-     * @param modelo Modelo do veículo (pode ser null)
      * @param tipo Tipo do veículo (Carro, Moto, etc.)
      */
-    public Veiculo(String placa, String modelo, String tipo) {
+    public Veiculo(String placa, String tipo) {
         this.placa = placa;
-        this.modelo = modelo;
         this.tipo = tipo;
         this.dataEntrada = LocalDateTime.now();
         this.dataSaida = null;
@@ -29,13 +26,11 @@ public class Veiculo {
     /**
      * Construtor que permite definir a hora de entrada manualmente.
      * @param placa Placa do veículo
-     * @param modelo Modelo do veículo (pode ser null)
      * @param tipo Tipo do veículo (Carro, Moto, etc.)
      * @param dataEntrada Data e hora de entrada do veículo
      */
-    public Veiculo(String placa, String modelo, String tipo, LocalDateTime dataEntrada) {
+    public Veiculo(String placa, String tipo, LocalDateTime dataEntrada) {
         this.placa = placa;
-        this.modelo = modelo;
         this.tipo = tipo;
         this.dataEntrada = dataEntrada;
         this.dataSaida = null;
@@ -48,14 +43,6 @@ public class Veiculo {
     
     public void setPlaca(String placa) {
         this.placa = placa;
-    }
-    
-    public String getModelo() {
-        return modelo;
-    }
-    
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
     }
     
     public String getTipo() {
@@ -157,13 +144,12 @@ public class Veiculo {
     
     @Override
     public String toString() {
-        String modeloStr = (modelo != null && !modelo.isEmpty()) ? modelo : "Não informado";
         if (dataSaida == null) {
-            return String.format("Placa: %s | Modelo: %s | Tipo: %s | Entrada: %s | Status: Estacionado",
-                    placa, modeloStr, tipo, dataEntrada.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+            return String.format("Placa: %s | Tipo: %s | Entrada: %s | Status: Estacionado",
+                    placa, tipo, dataEntrada.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
         } else {
-            return String.format("Placa: %s | Modelo: %s | Tipo: %s | Entrada: %s | Saída: %s | Valor: R$ %.2f",
-                    placa, modeloStr, tipo,
+            return String.format("Placa: %s | Tipo: %s | Entrada: %s | Saída: %s | Valor: R$ %.2f",
+                    placa, tipo,
                     dataEntrada.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")),
                     dataSaida.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")),
                     calcularValor());
